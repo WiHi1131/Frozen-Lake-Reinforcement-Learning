@@ -7,7 +7,7 @@ from collections import namedtuple
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 partition = namedtuple("partition", ["type", "subtype"])
 
-env = gym.make("LunarLander-v2", render_mode="human")
+env = gym.make('FrozenLake-v1', render_mode="human")
 observation, info = env.reset()
 for _ in range(1000):
     action = env.action_space.sample()  # agent policy that uses the observation and info
