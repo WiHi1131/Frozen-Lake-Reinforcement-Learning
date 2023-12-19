@@ -1,3 +1,4 @@
+#Same as code for q_learning_agent.py, except for use with FrozenLake 8x8 environment. 
 import gymnasium as gym
 import numpy as np
 import random
