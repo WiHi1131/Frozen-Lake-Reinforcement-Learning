@@ -6,7 +6,7 @@ def test_policy(env, policy, total_episodes=100):
     for episode in range(total_episodes):
         observation, info = env.reset()
         episode_reward = 0
-        for _ in range(99):  # Max steps per episode
+        for _ in range(199):  # Max steps per episode
             action = policy[observation]
             observation, reward, terminated, truncated, info = env.step(action)
             episode_reward += reward
@@ -21,7 +21,7 @@ def test_policy(env, policy, total_episodes=100):
 def render_policy(env, policy, total_episodes=5):
     for episode in range(total_episodes):
         observation, info = env.reset()
-        for step in range(99):  # Max steps per episode
+        for step in range(199):  # Max steps per episode
             env.render()
             action = policy[observation]
             observation, reward, terminated, truncated, info = env.step(action)
@@ -33,7 +33,7 @@ def render_policy(env, policy, total_episodes=5):
                 break
 
 if __name__ == "__main__":
-    env = gym.make('FrozenLake-v1', render_mode=None)  # Train without rendering
+    env = gym.make('FrozenLake8x8-v1', render_mode=None)  # Train without rendering
     policy = run_value_iteration(env)
 
     # Test the policy and print average reward
@@ -41,6 +41,6 @@ if __name__ == "__main__":
     print("Average Score over time: " + str(average_reward))
 
     # Render in human mode for demonstration and print steps per episode
-    env = gym.make('FrozenLake-v1', render_mode="human")
+    env = gym.make('FrozenLake8x8-v1', render_mode="human")
     render_policy(env, policy, 5)
     env.close()
